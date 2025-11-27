@@ -1,23 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="ex1.js"></script>
+
     <title>Document</title>
 </head>
+
 <body>
-    <script>
-//         (function()
-//  {   alert( "This is a String");} )() 
 
 
- let v=(function(n)
- {
-    return n*n;
- }(7))()
+   <script>
+        "use strict"
 
- document.write(v)
+        function person(nm, ag) {
+            console.log(this);
+            if (this instanceof person) {
+                this.name = nm;
+                this.age = ag;
+                alert(this.constructor)
+                return this;
+            }
+            else
+                throw new TypeError("Check this is not a function");
+        }
+        person.prototype.display = function () { return " parent classmethod data   "; }
+        person.prototype.walk = function () { return " Person can walk " }
+        person.prototype.toString = function () { return this.name + "  " + this.age + "  " + this.walk() }
+
+       
+        function child(nm, ag) {
+
+            person.call(this, nm, ag);
+
+            this.speak = function () { return "  uh...ooooa  uh  ..oooa"; };
+        }
+        child.prototype = Object.create(person.prototype); //extends
+        child.prototype.walk = function () { return "  child  can  crawl  " }
+        var c = new child("rohan", 60);  //child  got  access  to  parent  method
+        console.log(c.display());
+        console.log(c);
+        document.write(c);
+        document.write(c.display());
+        document.write(c.walk());
+        //document.write(c.speak());
+
     </script>
+
+    
+  
+
+
+
+
+
+
 </body>
+
 </html>

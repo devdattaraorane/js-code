@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        // function go() {
+        //     document.write("hello");
+        // }
+        // go(); //function call
+        // document.write("<hr/>");
+        // var r = go(); undefined
+        // document.write("<hr/>");
+        // console.log(r);//Undefine 
+        // document.write("<hr/>");
+        // document.write(typeof (go)); //function
+        // document.write("<hr/>");
+        // document.write(go); //function defination
+
+
+        // function call(a, b) {
+        //     var p;
+        //     p = a * b
+        //     return p;
+        // }
+        // var x, y;
+        // x = 5;
+        // y = 7;
+        // var r = call(x);
+        // document.write(r);
+        // document.write(call(3, 3));
+
+        // function call(a, b) {
+        //     var p;
+        //     b = b || 3;
+        //     p = a * b
+        //     return p;
+        // }
+        // var x, y;
+        // x = 5;
+        // y = 7;
+        // var r = call(x);
+        // document.write(r);
+        // document.write(call(3, 4));
+
+        //         function call(a,b=1)
+        // {  var p;
+        // p=a*b
+        // return p;
+        //  }
+        // var x , y;
+        // x=5;
+        // y=7;
+        // var r=call(x);
+        // document.write(r);
+        // document.write(call(3,3));
+        function multiply(...myarg) {
+            console.log(myarg);              // Array of arguments
+            console.log(typeof myarg);       // "object" (arrays are special objects)
+            console.log(myarg.constructor);  // ƒ Array()  → proves it's an array
+
+            let sum = 0;
+            for (let i = 0; i < myarg.length; i++)
+                sum += myarg[i];
+            return sum;
+        }
+
+        var arr = multiply(2, 3);
+        document.write(arr);
+        arr = multiply(2, 3, 5, 6, 7);
+        document.write(arr);
+
+
+
+    </script>
+</body>
+
+</html>
