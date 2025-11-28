@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script type="text/javascript">
+        function callme() {
+            let dd=document.getElementById("dd");
+            let s = document.getElementsByTagName("p");   //$(‘p’)
+            let l = s.length;
+            for (i = 0; i < l; i++) 
+            { 
+                alert(s[i].innerHTML) ;
+                dd.innerHTML+=s[i].innerHTML+"<br>";
+            }
+        }
+
+    </script>
+    </head>
+
+    <body>
+
+        <input type="button" onclick="callme()" value="clickme" />
+        <p>Welcome<b> to world of</b> Dom</p>
+        <p>2nd p</p>
+        <p>3rd p</p>
+        <div id="dd"></div>
+
+    </body>
+
+</html>

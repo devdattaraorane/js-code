@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        'use strict'
+        class Account {
+            constructor(name, amt) {
+                this.name = name;
+                this.balance = amt;
+                alert(typeof this.constructor)
+            }
+        }
+        let a = new Account("Devdatta", 5000);
+
+        // var add = (function () 
+        // {
+        //     var counter = 0;
+        //     return function ()
+        //     {
+        //         return counter += 1;
+        //     }
+        // })(); //1
+
+        // function myFunction()
+        // {//4
+        //     document.getElementById("demo").innerHTML = add();//5
+        // }
+
+
+    </script>
+</body>
+
+</html>

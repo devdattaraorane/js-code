@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        class Account {
+            constructor(fname, lname, amt) {
+                if (new.target === Account) {
+                    throw new TypeError("Cannot construct Abstract instances directly");
+                }
+                this.firstname = fname;
+                this.lastname = lname;
+                this.balance = amt;
+            }
+
+            set firstname(v) { this._fnm = v; }
+            get firstname() { return this._fnm; }
+
+            set lastname(v) { this._lnm = v; }
+            get lastname() { return this._lnm; }
+
+            set balance(v) { this._bal = v; }
+            get balance() { return this._bal; }
+
+            deposit(amt) { this.balance += amt; }
+
+            toString() { return this.firstname + " " + this.lastname + " " + this.balance; }
+        }
+
+        class Savingaccount extends Account {
+            constructor(type, fname, lname, amt) {
+                super(fname, lname, amt);
+                this.type = type;
+            }
+
+            withdraw(amt) {
+                const minbal = 1000;
+                if (amt > (this.balance - minbal))
+                {
+                    throw new TypeError("Withdrawal exceeds minimum balance");
+                }
+                this.balance -= amt;
+            }
+        }
+
+        try {
+            var obj = new Savingaccount("Saving", "Raj", "Mathur", 2000);
+            obj.deposit(2000);
+            document.write(obj + "<br>");
+            obj.withdraw(3000);
+            document.write(obj);
+        } catch (e) {
+            document.write("Exception Message: " + e.message); // Print only exception message
+            // OR
+            // console.log(e.toString());       // prints name + message
+            // // OR
+            // e.stack;                         // prints full stack trace (in console)
+        }
+
+    </script>
+</body>
+
+</html>

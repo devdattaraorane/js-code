@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+        function call() {
+            var x = document.getElementById("cp");
+            var y = document.getElementById("pr");
+            y.innerHTML = x.innerHTML;
+
+        }
+
+        // function callme() {
+        //     let s = document.getElementById("pr");
+
+        //     alert(s); // Object HTMLParagraphElement
+        //     alert(s.nodeName); // name of node (P)
+        //     alert(s.childNodes[0].nodeValue); // first text node data ("Welcome ")
+        //     alert(s.childNodes[0].nodeName); // #text
+        //     alert(s.childNodes[0].nodeType); // 3 -> text node
+        //     alert(s.innerHTML); // entire data between <p>...</p>
+        //    alert(s.childNodes[1].childNodes[0].nodeValue);
+
+        //     alert(s.childNodes[2].nodeValue)
+        // }
+    </script>
+</head>
+
+<body>
+    <p id="cp">hello</p>
+    <input type="button" value="copy" onclick="call()" />
+    <p id="pr"></p>
+
+    </body>
+
+</html>
+

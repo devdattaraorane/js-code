@@ -1,0 +1,111 @@
+<script>
+
+    class Account {
+        #firstname;
+        #lastname;
+        #balance;
+        #id;
+
+        static #aid = 0;
+
+        constructor(fname, lname, amt) {
+             if (new.target === Account)  // 🚨 Prevent direct creation
+            throw new Error("Cannot create object of abstract class Account");
+
+
+            this.firstname = fname;
+            this.lastname = lname;
+            this._cbalance = amt;
+            this.#id = ++Account.#aid;
+        }
+
+        set firstname(value) {
+            this.#firstname = value;
+        }
+        get firstname() {
+            return this.#firstname;
+        }
+
+        set lastname(value) {
+            this.#lastname = value;
+        }
+        get lastname() {
+            return this.#lastname;
+        }
+
+        set _cbalance(value) {
+            this.#balance = value;
+        }
+        get _cbalance() {
+            return this.#balance;
+        }
+
+        get gid() {
+            return this.#id;
+        }
+
+        deposit(amt) {
+            this._cbalance += amt;
+        }
+
+        toString() {
+            return this.gid + " " + this.firstname + " " + this.lastname + " " + this._cbalance;
+        }
+
+
+
+    }
+
+
+    class Savingaccount extends Account {
+        constructor(acctype, fname, lname, amt) {
+            super(fname, lname, amt);
+
+            this.type = acctype;
+        }
+        withdraw(amt) 
+        {
+            const minbal = 1000;
+            if (amt > (this._cbalance - minbal))
+                throw new TypeError("err");
+            this._cbalance = this._cbalance - amt;
+        }
+
+    }
+
+class Currentaccount extends Account {
+    constructor(acctype, fname, lname, amt, overdraft) {
+        super(fname, lname, amt);
+        this.type = acctype;      // account type
+        this.overdraft = overdraft; // overdraft limit
+    }
+
+    withdraw(amt) {
+        // In current account, balance can go negative up to overdraft limit
+        if (amt > (this._cbalance + this.overdraft))
+            throw new TypeError("Withdrawal exceeds overdraft limit");
+
+        this._cbalance = this._cbalance - amt;
+    }
+
+    toString() {
+        return this.gid + " " + this.firstname + " " + this.lastname +
+            " " + this._cbalance + " (OD Limit: " + this.overdraft + ")";
+    }
+}
+
+
+
+var obj=new Savingaccount ("sav","Raj","Mathur",2000)
+obj.deposit(2000);
+document.write(obj);
+obj.withdraw(500);
+document.write(obj);
+//obj.gid=101;
+
+var obj2=new Currentaccount("cur","dev","rao",2345)
+obj2.deposit(1000);
+document.write(obj2);
+
+
+</script>
