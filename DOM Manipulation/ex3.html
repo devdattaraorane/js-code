@@ -21,21 +21,37 @@
             color: darkblue;
             font-size: 18px;
         }
-    </style>
 
+        button {
+            padding: 10px 20px;
+            background-color: orange;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 15px;
+        }
+    </style>
 </head>
 
 <body>
+
+    <button onclick="toggleP()">Toggle Paragraphs</button>
+
     <p>Welcome<b> to world of</b> Dom</p>
     <p>2nd p</p>
     <p>3rd p</p>
 
     <script>
-        let s = document.getElementsByTagName("p");
-        let l = s.length;
-
-        for (let i = 0; i < l; i++) {
-            console.log(s[i].innerHTML);
+        function toggleP() {
+            let s = document.getElementsByTagName("p");
+            for (let i = 0; i < s.length; i++) {
+                if (s[i].style.display === "none") {
+                    s[i].style.display = "block";  // show
+                } else {
+                    s[i].style.display = "none";   // hide
+                }
+            }
         }
     </script>
 
