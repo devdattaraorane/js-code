@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function callme() {
+            alert(document.images.length);  // shows total images in the document
+            document.mg.src = "img/helloviraat.webp";      // access via name attribute
+            // or equivalently:
+            document.getElementById("im").src = "b.bmp";
+        }
+
+        function backimg() {
+            document.mg.src = "img/sachin.jpg";
+        }
+    </script>
+</head>
+
+<body>
+    <img src="img/sachin.jpg" name="mg" id="im" 
+         onmouseover="callme()" 
+         onmouseout="backimg()">
+         
+    <img src="p.bmp" />
+    <img src="x.bmp" />
+</body>
+</html>
