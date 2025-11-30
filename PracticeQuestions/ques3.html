@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function changeColor()
+        {
+            var txt=document.getElementById("t1");
+             if (document.getElementById("r1").checked) {
+                txt.style.color = "red";
+            }
+            else if (document.getElementById("r2").checked) {
+                txt.style.color = "blue";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Choose Color</h3>
+    
+    Enter Text:
+    <input type="text" id="t1"><br><br>
+
+    <input type="radio" name="clr" id="r1" onclick="changeColor()"> Red
+    <input type="radio" name="clr" id="r2" onclick="changeColor()"> Blue
+</body>
+</html>

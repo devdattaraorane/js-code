@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function validateform() {
+            let name = document.getElementById("name").value.trim();
+            let pass = document.getElementById("password").value.trim();
+            let add = document.getElementById("address").value.trim();
+
+            let nameErr = document.getElementById("nameErr");
+            let passErr = document.getElementById("passErr");
+            let addErr = document.getElementById("addErr");
+
+            let isvalid = true;
+
+            // Clear previous errors
+            nameErr.innerHTML = "";
+            passErr.innerHTML = "";
+            addErr.innerHTML = "";
+
+            if (name === "") {
+                nameErr.innerHTML = "Name cannot be blank";
+                isvalid = false;
+            } else if (name.length < 2 || name.length > 15) {
+                nameErr.innerHTML = "Name must be between 2 and 15";
+                isvalid = false;
+            }
+
+            //password validatiom
+            if (pass === "") {
+                passErr.innerHTML = "Password cannot be blank";
+                isvalid = false;
+            } else if (pass.length < 8 || pass.length > 15) {
+                passErr.innerHTML = "Password must be between 8 and 15 characters";
+                isvalid = false;
+            }
+
+            // Address Validation
+            if (add === "") {
+                addErr.innerHTML = "Address cannot be blank";
+                isValid = false;
+            } else if (add.length < 10) {
+                addErr.innerHTML = "Address must be at least 10 characters";
+                isValid = false;
+            }
+
+            return isvalid;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+    <form action="welcome.html" onsubmit="return validateform()">
+        Name: <input type="text" id="name" /><br />
+        <span id="nameErr" class="error"></span><br />
+
+        Password: <input type="password" id="password" /><br />
+        <span id="passErr" class="error"></span><br />
+
+        Address: <textarea id="address"></textarea><br />
+        <span id="addErr" class="error"></span><br />
+
+        <button type="submit">Submit</button>
+        <br>
+        <button type="reset"> Reset</button>
+    </form>
+</body>
+
+</html>

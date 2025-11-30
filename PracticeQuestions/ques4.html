@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkPassword()
+        {
+            var p1=document.getElementById("pass1").value;
+            var p2=document.getElementById("pass2").value;
+
+            if(p1=== p2 && p1!="")
+            {
+                document.getElementById("result").innerHTML = "Valid";
+                document.getElementById("result").style.color = "green";
+            }
+            else
+            {
+                document.getElementById("result").innerHTML="Invalid";9
+                document.getElementById("result").style.color="red";
+            }
+        }
+    </script>
+</head>
+<body>
+    Password : <input type="password" id="pass1"><br><br>;
+    Re - enter password: <input type="password" id="pass2" onblur="checkPassword()"> <br> <br>''
+     <div id="result"></div>
+</body>
+</html>

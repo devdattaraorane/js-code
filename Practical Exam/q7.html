@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Total Calculator</title>
+  <script>
+    function calculateTotal() {
+      // Get all checkboxes
+      let checkboxes = document.getElementsByName("book");
+      let total = 0;
+
+      // Loop through and add prices of checked books
+      for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          total += parseInt(checkboxes[i].value);
+        }
+      }
+
+      // Display total in textbox
+      document.getElementById("total").value = total;
+    }
+  </script>
+</head>
+<body>
+  <h2>Select Books</h2>
+  
+  <label><input type="checkbox" name="book" value="200" onchange="calculateTotal()"> C (₹200)</label><br>
+  <label><input type="checkbox" name="book" value="500" onchange="calculateTotal()"> C# (₹500)</label><br>
+  <label><input type="checkbox" name="book" value="550" onchange="calculateTotal()"> React (₹550)</label><br>
+  <label><input type="checkbox" name="book" value="400" onchange="calculateTotal()"> Java (₹400)</label><br><br>
+
+  <label>Total Price: ₹</label>
+  <input type="text" id="total" readonly>
+</body>
+</html>
