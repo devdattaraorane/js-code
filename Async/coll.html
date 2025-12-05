@@ -1,0 +1,42 @@
+<script>"use strict";
+
+    var myMap = new Map();
+    myMap.set(0, "zero");
+    myMap.set(1, "one");
+
+    // 1) Iterate over [key, value] pairs
+    for (var [key, value] of myMap) {
+        console.log(key + " = " + value);
+    }
+    // Output:
+    // 0 = zero
+    // 1 = one
+
+    // 2) Only keys
+    for (var key of myMap.keys()) {
+        console.log(key);
+    }
+    // Output:
+    // 0
+    // 1
+
+    // 3) Only values
+    for (var value of myMap.values()) {
+        console.log(value);
+    }
+    // Output:
+    // zero
+    // one
+
+    // 4) entries() gives [key, value] pairs
+    for (var [key, value] of myMap.entries()) {
+        console.log(key + " = " + value);
+    }
+
+    // 5) forEach
+    myMap.forEach(function (value, key) {
+        console.log(key + " = " + value);
+    });
+
+
+</script>

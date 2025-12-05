@@ -1,0 +1,46 @@
+<html>
+<head>    <script>
+        var tt;
+        var im;
+        function changebg() {
+            var col = new Array("green", "blue", "red")//name of images
+            l = col.length
+            var rnd_no = Math.floor(l * Math.random()); //it will generate any number between  [0 to 2] 
+
+            //alert(Math.floor(l*Math.random()))
+            document.body.bgColor = col[rnd_no];
+            //img=document.getElementById[‘img’];
+            //img.src= col[rnd_no];
+
+            tt = setTimeout('changebg()', 500)
+
+        }
+        function stopclock() {
+            clearTimeout(tt)
+        }
+        function changeimg() {
+            var col = new Array("images/images.jpg", "images/images.jpg", "images/images.jpg")//name of images
+            l = col.length
+            var rnd_no = Math.floor(l * Math.random()); //it will generate any number between  [0 to 2] 
+
+            //alert(Math.floor(l*Math.random()))
+           img=document.getElementById('img');
+            img.src= col[rnd_no];
+
+            im = setTimeout('changeimg()', 500)
+
+        }
+        function  stopimg() {
+            clearTimeout(im)
+        }
+    </script>
+</head>
+
+<body onLoad="changeimg()">
+
+    <input type="button" onclick="stopclock()" value="stop">
+    <img src="images/images.jpg" id="img" height="550" width="550"/>
+
+</body> 
+
+</html>
